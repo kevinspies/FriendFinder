@@ -1,0 +1,23 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "dating app where you fill out a survey and find your best match! technologies/libraries will include, javascript, heroku, express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinspies/FriendFinder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinspies/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/kevinspies/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
