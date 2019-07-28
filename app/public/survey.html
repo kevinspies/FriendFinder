@@ -430,8 +430,12 @@
                 console.log("userData scores right after creation: " + userData.scores);
 
                 // AJAX post the data to the friends API.
+                //so data here will hold the information for the correct match i believe
                 $.post("/api/friends", userData, function (data) {
 
+
+                    //oh so this utilizes a callback right? so that i can show the right match after handling which is the right match in apiRoutes..
+                    //then come back to this function and display the corrent match, so apiRoute post will have to send back the correct match
                     console.log("userData after jQuery post: " + userData);
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);

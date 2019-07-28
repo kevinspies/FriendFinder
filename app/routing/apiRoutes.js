@@ -21,15 +21,20 @@ module.exports = function (app) {
         console.log("req.body: " + req.body);
         console.log("req: " + req);
         console.log("req.body.friendData: " + req.body.friendData);//undefined
+        console.log("accessing the info from my apiRoute - req.body.name: " + req.body.name);
         // console.log("req.body.friendData: " + req.body.friendData.friendsArray); "error! error! extreeeme error!" - robot from jimmy neutron
         //hell why would it know, i need to pass this post another parameter
         friendData.push(req.body);
 
         //compatibility logic here
-        console.log("req.body.name: " + req.body.name);
+
+
+
+
+
+
 
 
         res.json(true);
-
     });
 };
