@@ -16,7 +16,7 @@ module.exports = function (app) {
     // If a user sends data to add a new character...
     app.post("/api/friends", function (req, res) {
         console.log("posting to api/friends!");
-        console.log(req.body);
+        console.log("req.body: " + req.body);
         friendData.push(req.body);
         res.json(true);
     });
