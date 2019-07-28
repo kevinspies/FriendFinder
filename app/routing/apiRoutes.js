@@ -26,8 +26,9 @@ module.exports = function (app) {
         //hell why would it know, i need to pass this post another parameter
         friendData.push(req.body);
 
-        var lowestScore = 0;//initializing a varialb eto represent our lowestScore aka our best match - the least difference between answers
-        //we will set temp score to lowest score if its lower than the previous iterations temp score value, i think this will work!
+        var lowestScore = 100;//initializing a varialb eto represent our lowestScore aka our best match - the least difference between answers
+        //we will set temp score to lowest score if its lower than the previous iterations temp score value, i think this will work! setting
+        //it to a very high number makes sense to start with because we want our first compatibility value to actually take
 
         //compatibility logic here
         for (var i = 0; i < friendData.length; i++) {
@@ -37,7 +38,9 @@ module.exports = function (app) {
             console.log(friendData[i].photo);
             console.log(friendData[i].scores);
             if (tempScore) {
-                if (tempScore)
+                if (tempScore < lowestScore) {
+                    lowestScore = tempScore;
+                }
             }
             var tempScore = compare(req.body.scores, friendData[i].scores);//here we'll hold a value representing a compatibilty score for each possible match
         }
@@ -47,7 +50,7 @@ module.exports = function (app) {
         function compare(arr1, arr2) {
             var sum = 0;
             for (var i = 0; i < arr1.length; i++) {
-                var diff = Math.abs(arr1[i] - arr2[i]);//calcuatles the difference between their response at each index
+                var diff = Math.abs(arr1[i] - arr2[i]);//calculates the difference between their response at each index
                 sum = sum + diff;//add that difference to sum we'll return that at the end as their compatibilty score
             }
             return sum;
