@@ -424,10 +424,15 @@
                         $("#q10").val()
                     ]
                 };
+                console.log("userData right after creation: " + userData);//showing up in inspect console
+                console.log("userData name right after creation: " + userData.name);
+                console.log("userData photo right after creation: " + userData.photo);
+                console.log("userData scores right after creation: " + userData.scores);
 
                 // AJAX post the data to the friends API.
                 $.post("/api/friends", userData, function (data) {
 
+                    console.log("userData after jQuery post: " + userData);
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);

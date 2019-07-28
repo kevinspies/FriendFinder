@@ -20,9 +20,15 @@ module.exports = function (app) {
         console.log("posting to api/friends!");
         console.log("req.body: " + req.body);
         console.log("req: " + req);
-        console.log("req.body.friendData: " + req.body.friendData);
-        console.log("req.body.friendData: " + req.body.friendData.friendsArray);
+        console.log("req.body.friendData: " + req.body.friendData);//undefined
+        // console.log("req.body.friendData: " + req.body.friendData.friendsArray); "error! error! extreeeme error!" - robot from jimmy neutron
+        //hell why would it know, i need to pass this post another parameter
         friendData.push(req.body);
+
+        //compatibility logic here
+        console.log("req.body.name: " + req.body.name);
+
+
         res.json(true);
 
     });
