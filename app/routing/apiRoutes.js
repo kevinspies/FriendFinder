@@ -24,11 +24,12 @@ module.exports = function (app) {
         console.log("accessing the info from my apiRoute - req.body.name: " + req.body.name);
         // console.log("req.body.friendData: " + req.body.friendData.friendsArray); "error! error! extreeeme error!" - robot from jimmy neutron
         //hell why would it know, i need to pass this post another parameter
-        friendData.push(req.body);
+
 
         var lowestScore = 100;//initializing a varialb eto represent our lowestScore aka our best match - the least difference between answers
         //we will set temp score to lowest score if its lower than the previous iterations temp score value, i think this will work! setting
         //it to a very high number makes sense to start with because we want our first compatibility value to actually take
+        var matchName = "";
 
         //compatibility logic here
         for (var i = 0; i < friendData.length; i++) {
@@ -40,10 +41,13 @@ module.exports = function (app) {
             if (tempScore) {
                 if (tempScore < lowestScore) {
                     lowestScore = tempScore;
+                    matchName = friendData[i].name;
                 }
             }
             var tempScore = compare(req.body.scores, friendData[i].scores);//here we'll hold a value representing a compatibilty score for each possible match
         }
+        console.log("your closest match's name is: " + matchName + "!");
+        console.log("your closest match's compatibility score is: " + lowestScore + "!");
         //plan... each iteration through the above loop will yield a compatibility score
         //our current friend, our submission, is located of course within req.body, so that is the one to compare against
         //this function will compare one array against another and yield a score
@@ -57,8 +61,8 @@ module.exports = function (app) {
         }
 
 
-
-
+        //pretty sure i wanna push this after my logic so a user doesn't match against themself - cuz that would always happen you are just your best match, period!
+        friendData.push(req.body);
 
 
 
